@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung Total item</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .label {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .input-field {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        .total {
+            color: #ff0;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .reset-button {
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Menghitung Total Profit Scrab</h2>
+    <div class="label">Scroll of Vitality (Love Merah)</div>
+    <input class="input-field" type="number" id="entry1">
+    
+    <div class="label">Scroll of Accuracy (Pedang)</div>
+    <input class="input-field" type="number" id="entry2">
+    
+    <div class="label">Scroll of Rejuvenation (Love Biru)</div>
+    <input class="input-field" type="number" id="entry3">
+    
+    <div class="label">Scroll of Protection (Tameng)</div>
+    <input class="input-field" type="number" id="entry4">
+    
+    <div class="label">Scroll of Power (Tangan)</div>
+    <input class="input-field" type="number" id="entry5">
+    
+    <div class="label">Scroll of Deflection (Ijo)</div>
+    <input class="input-field" type="number" id="entry6">
+    
+    <div class="label">Health Flask (Potion Medium)</div>
+    <input class="input-field" type="number" id="entry7">
+    
+    <div class="label">Flask of Life (Potion Gede)</div>
+    <input class="input-field" type="number" id="entry8">
+    
+    <div class="label">Highmage Boots</div>
+    <input class="input-field" type="number" id="entry9">
+    
+    <div class="label">Highmage Top</div>
+    <input class="input-field" type="number" id="entry10">
+    
+    <div class="label">Highmage Hat</div>
+    <input class="input-field" type="number" id="entry11">
+    
+    <div class="label">Highmage Robe</div>
+    <input class="input-field" type="number" id="entry12">
+    
+    <div class="total" id="total">Totalnya</div>
+    
+    <button class="reset-button" onclick="resetFields()">Reset</button>
+    
+    <script>
+        function updateTotal() {
+            const loveScroll = parseInt(document.getElementById('entry1').value) * 3000 || 0;
+            const swordScroll = parseInt(document.getElementById('entry2').value) * 4500 || 0;
+            const blueLove = parseInt(document.getElementById('entry3').value) * 4500 || 0;
+            const defend = parseInt(document.getElementById('entry4').value) * 4500 || 0;
+            const strong = parseInt(document.getElementById('entry5').value) * 4500 || 0;
+            const deflection = parseInt(document.getElementById('entry6').value) * 6000 || 0;
+            const potionMedium = parseInt(document.getElementById('entry7').value) * 250 || 0;
+            const potionGede = parseInt(document.getElementById('entry8').value) * 550 || 0;
+            const highmageBoots = parseInt(document.getElementById('entry9').value) * 23550 || 0;
+            const highmageTop = parseInt(document.getElementById('entry10').value) * 29700 || 0;
+            const highmageHat = parseInt(document.getElementById('entry11').value) * 22500 || 0;
+            const highmageRobe = parseInt(document.getElementById('entry12').value) * 28725 || 0;
+            
+            const total = loveScroll + swordScroll + blueLove + defend + strong + deflection + potionMedium + potionGede + highmageBoots + highmageTop + highmageHat + highmageRobe;
+            
+            document.getElementById('total').textContent = `Totalnya adalah ${total.toLocaleString()}`;
+        }
+        
+        function resetFields() {
+            const inputFields = Array.from(document.querySelectorAll('.input-field'));
+            
+            inputFields.forEach((field) => {
+                field.value = '';
+            });
+            
+            document.getElementById('total').textContent = 'Totalnya';
+        }
+        
+        const inputFields = Array.from(document.querySelectorAll('.input-field'));
+        
+        inputFields.forEach((field) => {
+            field.addEventListener('input', updateTotal);
+        });
+    </script>
+</body>
+</html>
